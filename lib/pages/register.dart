@@ -79,7 +79,9 @@ class _RegisterState extends State<Register> {
               decoration: InputDecoration(
                 labelText: 'Name',
                 hintText: 'Enter Name',
-                suffixIcon: Icon(Icons.person),
+                suffixIcon: Icon(
+                    Icons.person,
+                    color: Colors.blue.shade600),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15)
                 ),
@@ -95,7 +97,9 @@ class _RegisterState extends State<Register> {
               decoration: InputDecoration(
                 labelText: 'Email',
                 hintText: 'Enter Email',
-                suffixIcon: Icon(Icons.email),
+                suffixIcon: Icon(
+                    Icons.email,
+                    color: Colors.blue.shade600),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15)
                 ),
@@ -112,7 +116,9 @@ class _RegisterState extends State<Register> {
                 labelText: 'Password',
                 hintText: 'Enter Password',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.remove_red_eye_outlined),
+                  icon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.blue.shade600),
                   onPressed: (){
                     setState(() {
                       pass=!pass;
@@ -136,7 +142,9 @@ class _RegisterState extends State<Register> {
                 labelText: 'Confirmation Password',
                 hintText: 'Enter Password',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.remove_red_eye_outlined),
+                  icon: Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.blue.shade600),
                   onPressed: (){
                     setState(() {
                       pass=!pass;
@@ -156,8 +164,6 @@ class _RegisterState extends State<Register> {
               height: 20,
             ),
             ElevatedButton(
-
-
               child: Text( 'Register',
                   style: TextStyle(color: Colors.white, fontSize: 20)),
               onPressed: (){

@@ -31,7 +31,6 @@ class _LoginState extends State<Login> {
 
      );
      if(response.statusCode ==200){
-
        var data = jsonDecode(response.body.toString());
        print(data['token']);
        if(data['token'] == null){
@@ -44,7 +43,6 @@ class _LoginState extends State<Login> {
                MaterialPageRoute(builder: (n){
                  return First_Page(emailController.text , passwordController.text);
                })
-
            );
          });
        }
@@ -55,119 +53,125 @@ class _LoginState extends State<Login> {
    }
    catch(e){
      print(e.toString());
-
        }
   }
   @override
   Widget build(BuildContext context) {
     return
-      Scaffold(
-        appBar: AppBar(
-          // title: Text(
-          //   'Account',
-          //   style: TextStyle(
-          //     fontSize: 30,
-          //     fontStyle: FontStyle.italic,
-          //   ),
-          // ),
-        ),
-        body:
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 50,
-              height: 20,
-            ),
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+             title: Text(
+              'Log In',
+            //   style: TextStyle(
+            //     fontSize: 30,
+            //     fontStyle: FontStyle.italic,
+               ),
+             ),
 
-            TextFormField(
-              controller: emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                hintText: 'Enter Email',
-                suffixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15)
+          body:
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 50,
+                height: 20,
+              ),
+
+              TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Enter Email',
+                  suffixIcon: Icon(
+                      Icons.email,
+                      color: Colors.blue.shade600),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15)
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 50,
-              height: 20,
-            ),
-            TextFormField(
-              obscureText: pass,
-              controller: passwordController,
-              decoration: InputDecoration(
-                labelText: ' Password',
-                hintText: 'Enter Password',
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.remove_red_eye_outlined),
-                  onPressed: (){
-                    setState(() {
-                      pass=!pass;
-                    });
+              SizedBox(
+                width: 50,
+                height: 20,
+              ),
+              TextFormField(
+                obscureText: pass,
+                controller: passwordController,
+                decoration: InputDecoration(
+                  labelText: ' Password',
+                  hintText: 'Enter Password',
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                        Icons.remove_red_eye_outlined,
+                        color: Colors.blue.shade600),
+                    onPressed: (){
+                      setState(() {
+                        pass=!pass;
+                      });
 
-                  },
-                ),
+                    },
+                  ),
 
-                //Icon(Icons.remove_red_eye_outlined),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15)
+                  //Icon(Icons.remove_red_eye_outlined),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15)
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 50,
-              height: 50,
-            ),
-            ElevatedButton(
+              SizedBox(
+                width: 50,
+                height: 50,
+              ),
+              ElevatedButton(
 
 
-              child: Text( 'Log in ',
-                  style: TextStyle(color: Colors.white, fontSize: 20)),
-              onPressed: (){
-                login(emailController.text.toString(),passwordController.text.toString());
-                // Navigator.of(context).push(
-                //     MaterialPageRoute(builder: (n){
-                //       return First_Page(emailController.text , passwordController.text);
-                //     })
-                //
-                // );
-              },
-            ),
-          // GestureDetector(
-          //   onTap:(){login(emailController.text.toString(),passwordController.text.toString());},
-          //   child:  Container(
-          //     child:   ElevatedButton(
-          //
-          //
-          //       child: Text( 'Log in ',
-          //           style: TextStyle(color: Colors.white, fontSize: 20)),
-          //       onPressed: (){
-          //         Navigator.of(context).push(
-          //             MaterialPageRoute(builder: (n){
-          //               return First_Page(emailController.text , passwordController.text);
-          //             })
-          //
-          //         );
-          //       },
-          //     )
-          //   )
-          // ),
-          ElevatedButton(
-          child: Text( 'Register ',
-          style: TextStyle(color: Colors.white, fontSize: 20)),
-             onPressed: (){
-               Navigator.of(context).push(
-               MaterialPageRoute(builder: (n){
-                     return Register();
-                   })
-
-               );
+                child: Text( '  Log in   ',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+                onPressed: (){
+                  login(emailController.text.toString(),passwordController.text.toString());
+                  // Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (n){
+                  //       return First_Page(emailController.text , passwordController.text);
+                  //     })
+                  //
+                  // );
                 },
-               )
-          ],
+              ),
+              // GestureDetector(
+              //   onTap:(){login(emailController.text.toString(),passwordController.text.toString());},
+              //   child:  Container(
+              //     child:   ElevatedButton(
+              //
+              //
+              //       child: Text( 'Log in ',
+              //           style: TextStyle(color: Colors.white, fontSize: 20)),
+              //       onPressed: (){
+              //         Navigator.of(context).push(
+              //             MaterialPageRoute(builder: (n){
+              //               return First_Page(emailController.text , passwordController.text);
+              //             })
+              //
+              //         );
+              //       },
+              //     )
+              //   )
+              // ),
+              ElevatedButton(
+                child: Text( 'Register ',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+                onPressed: (){
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (n){
+                        return Register();
+                      })
+
+                  );
+                },
+              )
+            ],
+          ),
         ),
       );
 
